@@ -1,7 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import "suneditor/dist/css/suneditor.min.css";
+// import "suneditor/dist/css/suneditor.min.css";
+import "suneditor/dist/css/suneditor.css";
 import katex from "katex";
 
 
@@ -15,7 +16,7 @@ export default function Editor({ value, onChange, disabled }) {
 
             setContents={value ?? ""}
             onChange={onChange}
-            disable={disabled}
+            disable={disabled ?? false}
             setOptions={{
                 katex: katex,
                 buttonList: [
