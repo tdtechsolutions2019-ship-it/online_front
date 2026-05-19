@@ -1,17 +1,24 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useRef, useState } from "react";
-
-
 
 const months = [
     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
 ];
 
-export default function MonthYearPicker({ value, onChange }) {
+// Added basic types for the props if you are using TypeScript
+interface MonthYearPickerProps {
+    value: string | null;
+    onChange: (value: string) => void;
+}
+
+export default function MonthYearPicker({ value, onChange }: MonthYearPickerProps) {
     console.log('value', value)
     const [open, setOpen] = useState(false);
     const [year, setYear] = useState(new Date().getFullYear());
-    const ref = useRef();
+    
+    // ✅ FIX: Added <HTMLDivElement> and initialized with (null)
+    const ref = useRef<HTMLDivElement>(null);
 
     // ✅ Handle value safely (string only: yyyy-MM)
     const selectedMonth =
@@ -29,8 +36,10 @@ export default function MonthYearPicker({ value, onChange }) {
 
     // ✅ Close on outside click
     useEffect(() => {
-        const handleClickOutside = (e) => {
-            if (ref.current && !ref.current.contains(e.target)) {
+        // Added MouseEvent type here
+        const handleClickOutside = (e: MouseEvent) => {
+            // Added 'as Node' to satisfy TypeScript's DOM type checking
+            if (ref.current && !ref.current.contains(e.target as Node)) {
                 setOpen(false);
             }
         };
@@ -39,11 +48,13 @@ export default function MonthYearPicker({ value, onChange }) {
     }, []);
 
     // ✅ Select month
-    const handleSelect = (month) => {
+    const handleSelect = (month: number) => {
         onChange(`${year}-${String(month).padStart(2, "0")}`);
         setOpen(false);
     };
+    
     const currentYear = new Date().getFullYear();
+    
     return (
         <div ref={ref} className="relative w-full">
 
@@ -54,7 +65,7 @@ export default function MonthYearPicker({ value, onChange }) {
         dark:border-gray-600 dark:bg-gray-700 dark:text-white 
         focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-                {value
+                {value && selectedMonth && selectedYear
                     ? `${months[selectedMonth - 1]} ${selectedYear}`
                     : "Select month & year"}
             </div>

@@ -1,3 +1,4 @@
+"use client";
 import React, { use, useEffect } from 'react'
 import { toast } from 'react-toastify';
 
