@@ -59,7 +59,7 @@ const StudentEditForm = () => {
       initialValues,
       validationSchema: studentPageSchema,
       onSubmit: async (value, action) => {
-        console.log("form values student Data", value);
+        
 
         try {
           setLoading(true);
@@ -77,7 +77,7 @@ const StudentEditForm = () => {
 
           const res = await updateData(`${Api.updateStudent}/${id}`, formData,
           );
-          console.log("ress", res)
+         
           if (res.status === 200) {
             dispatch(setStudent())
             toast.success("Student Update successfully");
@@ -176,8 +176,7 @@ const StudentEditForm = () => {
       };
     }
   );
-  console.log("Error In yoy", errors);
-  console.log("student data", values);
+
   return (
     <div>
       {loading && (

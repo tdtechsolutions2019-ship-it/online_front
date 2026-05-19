@@ -63,7 +63,7 @@ function RoleForm() {
                 try {
                     dispatch(setLoading(true));
 
-                    console.log("value", value);
+                 
                     const payload = {
                         ...value
                     };
@@ -71,7 +71,7 @@ function RoleForm() {
                     const res = await createData(
                         Api.addRoles, payload,
                     );
-                    console.log("resRoleform", res)
+           
                     if (res.success === true) {
                         dispatch(setRole());
                         toast.success("Role added successfully");

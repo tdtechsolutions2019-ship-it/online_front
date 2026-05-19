@@ -37,7 +37,7 @@ const StateForm = () => {
     value: country.id,
     label: country.country_name,
   }));
-  console.log("countryOptions", countryOptions)
+
 
   const { handleChange, values, handleSubmit, errors, touched, setFieldValue } =
     useFormik({
@@ -49,13 +49,13 @@ const StateForm = () => {
                 const payload = {
                   ...value
                 };
-                console.log("payload", payload)
+               
         
                 const res = await createData(
                   Api.addState,
                   payload,
                 );
-        console.log("state res",res)
+       
                 if (res.status === 200) {
                   dispatch(setGroupedState())
                   toast.success("State added successfully");
@@ -97,7 +97,7 @@ const StateForm = () => {
       fetchCountriesIfNeeded(dispatch, store?.getState);
     }
   }, [countries]);
-  console.log("countries", countries)
+
   return (
     <div>
        {loading && (

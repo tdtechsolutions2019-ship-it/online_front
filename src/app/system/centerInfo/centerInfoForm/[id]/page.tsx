@@ -48,7 +48,6 @@ const CenterInfoEditForm = () => {
   const isViewMode = mode === "view";
   const countries = useSelector((state: any) => state?.countries.list);
   const states = useSelector((state: any) => state?.states.groups);
-  console.log("states", states[0]?.states)
   const dispatch = useDispatch();
   const loading = useSelector((state: any) => state.centerInfo.loading);
 
@@ -67,7 +66,7 @@ const CenterInfoEditForm = () => {
       initialValues,
       validationSchema: centerInfoSchema,
       onSubmit: async (value, action) => {
-        console.log("form values", value)
+       
         try {
           dispatch(setLoading(true));
           const formData = new FormData();
@@ -92,7 +91,7 @@ const CenterInfoEditForm = () => {
             `${Api.updateCenterInfo}/${id}`,
             formData,
           );
-          console.log("ress", res)
+          
           if (res.status === 200) {
             dispatch(setCenterInfo())
 
@@ -125,7 +124,7 @@ const CenterInfoEditForm = () => {
           "Content-Type": "application/json",
         },
       });
-      console.log("res", res,)
+      
 
       if (res.status === 200) {
         setValues({
@@ -162,17 +161,17 @@ const CenterInfoEditForm = () => {
     const stoerestate = store?.getState;
 
     if (!countries?.length) {
-      console.log("Fetching countries...");
+    
       fetchCountriesIfNeeded(dispatch, stoerestate);
     }
 
     if (!states?.length) {
-      console.log("Fetching states...");
+      
       fetchStatesIfNeeded(dispatch, stoerestate);
     }
   }, [countries, states, dispatch]);
 
-  console.log("values.center_logo?.url", values)
+ 
   return (
     <div>
       {loading && (

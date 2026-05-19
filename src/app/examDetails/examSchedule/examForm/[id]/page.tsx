@@ -49,7 +49,7 @@ const ExamEditForm = () => {
       initialValues,
       validationSchema: examScheduleSchema,
       onSubmit: async (value, action) => {
-        console.log(value)
+       
 
         if (rowSelection.length > 0) {
 
@@ -71,7 +71,7 @@ const ExamEditForm = () => {
 
               router.push("/examDetails/examSchedule");
             }
-            console.log("country res", res)
+           
             if (res.status === 500) {
               toast.error(res.data.data.message);
             }
@@ -118,11 +118,11 @@ const ExamEditForm = () => {
           "Content-Type": "application/json",
         },
       });
-      console.log("getExamScheduale", res)
+      
       if (res.status === 200) {
 
         const data = res.data || {};
-        console.log("update data", data)
+      
         setValues({
           exam_date: data.exam_date || "",
           exam_time: data.exam_time || "",
@@ -149,9 +149,6 @@ const ExamEditForm = () => {
   }, [centerName]);
 
 
-  console.log("form exam", values)
-  console.log("form errors", errors);
-
   const GetRole = async (id) => {
     try {
       setLoading(true)
@@ -160,7 +157,7 @@ const ExamEditForm = () => {
           "Content-Type": "application/json",
         },
       })
-      console.log("res", res)
+   
       if (res.status === 200) {
         setStudentList(res.data)
         setShowtbl(true)
@@ -174,7 +171,7 @@ const ExamEditForm = () => {
     }
   }
 
-  console.log("rowSelection", rowSelection)
+
   return (
     <div>
       {loading && (

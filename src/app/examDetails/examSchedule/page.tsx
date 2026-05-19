@@ -17,7 +17,7 @@ import { toast } from 'react-toastify';
 
 
 export const SearchFilter = ({ examData, setExamData, setHasSearched }) => {
-  console.log("11111111", examData, setExamData, setHasSearched)
+
   const centerCode = useSelector((state: any) => state.centerInfo.list);
   const dispatch = useDispatch();
   const store = useStore();
@@ -104,8 +104,7 @@ export const SearchFilter = ({ examData, setExamData, setHasSearched }) => {
       fetchCenterIfNeeded(dispatch, store?.getState);
     }
   }, [centerCode]);
-  console.log("searchParams", searchParams)
-  console.log("examData", examData)
+
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 items-center">
@@ -251,7 +250,7 @@ const ExamListPage = () => {
           "Content-Type": "application/json",
         },
       })
-      console.log("resexamschedule", res)
+    
       if (res.status === 200) {
 
         const formattedData = res.data.map((item: any) => ({
@@ -277,7 +276,6 @@ const ExamListPage = () => {
 
       const res = await deleteData(`${Api.deleteExamschedule}/${id}`);
 
-      console.log("delete response", res);
       if (res.status === 200) {
         toast.success("Student deleted successfully");
         GetSchedualList();

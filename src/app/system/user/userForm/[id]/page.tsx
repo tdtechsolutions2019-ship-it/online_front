@@ -58,7 +58,7 @@ const UserUpdateForm = () => {
       initialValues,
       validationSchema: userPageSchema,
       onSubmit: async (value, action) => {
-        console.log("values", value)
+        
         try {
           setLoading(true);
           const role_name = roleoptions.find((item: any) => item.value === Number(values.role));
@@ -78,7 +78,7 @@ const UserUpdateForm = () => {
             `${Api.updateuser}/${id}`,
             payload,
           );
-          console.log("res", res)
+
           if (res.status === 200) {
             toast.success("User Updated successfully");
 
@@ -90,7 +90,7 @@ const UserUpdateForm = () => {
           }
         } catch (error) {
           toast.error("Failed to add country");
-          console.log("API Error", error);
+          
         }
         finally {
           setLoading(false);
@@ -110,7 +110,7 @@ const UserUpdateForm = () => {
           "Content-Type": "application/json",
         },
       });
-      console.log("res", res.data,)
+  
       const data = res.data[0]
       if (res.status === 200) {
         setValues({
@@ -144,18 +144,18 @@ const UserUpdateForm = () => {
     const stoerestate = store?.getState;
 
     if (!center?.length) {
-      console.log("Fetching states...");
+      
       fetchCenterIfNeeded(dispatch, stoerestate);
     }
     if (!role?.length) {
-      console.log("Fetching states...");
+     
       fetchRolesIfNeeded(dispatch, stoerestate);
     }
 
 
   }, [countries, states, dispatch]);
 
-  console.log("valuess", values)
+
   return (
     <div>
       {loading && (

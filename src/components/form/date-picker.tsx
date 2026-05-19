@@ -59,7 +59,7 @@ export default function DatePicker({
       fpRef.current.setDate(value, false);
     }
   }, [value]);
-  console.log("value", value);
+  
   return (
     <div>
       {label && <Label htmlFor={id}>{label}</Label>}

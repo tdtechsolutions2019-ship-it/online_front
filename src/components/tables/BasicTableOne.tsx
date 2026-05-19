@@ -22,21 +22,20 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import { useSelector } from "react-redux";
 
 export default function DataTable({ data, columns, isstudent, editPath, onDelete, loading, examschedule, setRowSelection, examscheduleList, downloadStudents, modulename, reports, appearreport }: any) {
-  console.log("examschedule", appearreport)
+
   const router = useRouter();
   const [rowSelectiones, setRowSelectionedd] = useState({});
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 10,
   });
-  // const filename = location.pathname.split("/")[2];
-  // console.log("filename",filename)
+
   const userData = useSelector((state: any) => state.login.user);
   const pathname = usePathname();
 
   const filename = pathname.split("/")[2];
 
-  console.log("filename", filename);
+
 
   // CSV
   const csvConfig = mkConfig({
@@ -101,7 +100,7 @@ export default function DataTable({ data, columns, isstudent, editPath, onDelete
 
     const body = data.map((row: any) =>
       columns.map((col: any) => {
-        console.log("row", row)
+       
         if (col.Cell) {
           return typeof col.Cell === "function"
             ? col.Cell({
@@ -122,7 +121,7 @@ export default function DataTable({ data, columns, isstudent, editPath, onDelete
     // ✅ dynamic name
     doc.save(`${filename}_${Date.now()}.pdf`);
   };
-  console.log("studentdata", isstudent)
+ 
   const srNoColumn = {
     header: "Sr. No.",
     size: 60,
@@ -216,7 +215,7 @@ export default function DataTable({ data, columns, isstudent, editPath, onDelete
                       const selectedRows = table.getSelectedRowModel().rows;
                       const selectedData = selectedRows.map(row => row.original);
                       setRowSelection(selectedData);
-                      console.log(selectedData);
+                      
                     }}
                   >
                     <AddOutlinedIcon fontSize="small" /> Select

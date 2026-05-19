@@ -38,14 +38,14 @@ const ExamAddForm = () => {
     label: centerName.center_name,
   }));
 
-  console.log("centerName", centerNameOptions)
+
 
   const { handleChange, values, setFieldValue, handleSubmit, errors, touched } =
     useFormik({
       initialValues,
       validationSchema: examScheduleSchema,
       onSubmit: async (value, action) => {
-        console.log(value)
+      
 
         if (rowSelection.length > 0) {
 
@@ -58,7 +58,7 @@ const ExamAddForm = () => {
             };
 
             const res = await createData(Api.addexamschedule, payload)
-            console.log("res121212121", res)
+         
             if (res.status === 200) {
 
               toast.success("Schedule added successfully");
@@ -109,8 +109,7 @@ const ExamAddForm = () => {
       fetchCenterIfNeeded(dispatch, store?.getState);
     }
   }, [centerName]);
-  console.log("form exam", values)
-  console.log("form errors", errors);
+
 
   const GetRole = async (id) => {
     try {
@@ -120,7 +119,7 @@ const ExamAddForm = () => {
           "Content-Type": "application/json",
         },
       })
-      console.log("res", res)
+    
       if (res.status === 200) {
         setStudentList(res.data)
         setShowtbl(true)
@@ -134,7 +133,6 @@ const ExamAddForm = () => {
     }
   }
 
-  console.log("rowSelection", rowSelection)
   return (
     <div>
       {loading && (

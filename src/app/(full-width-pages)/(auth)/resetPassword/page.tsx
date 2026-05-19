@@ -23,7 +23,7 @@ const ResetPasswordPage = () => {
              validationSchema: resetPassword,
              onSubmit: async (value, action) => {
        
-               console.log("form values", value)
+              
                router.push("/signin");  
              },
            });

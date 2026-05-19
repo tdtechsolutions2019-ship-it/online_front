@@ -37,7 +37,7 @@ const UserAddForm = () => {
   const center = useSelector((state: any) => state.centerInfo.list);
   const role = useSelector((state: any) => state.role.list);
 
-  console.log("object", role)
+
   const dispatch = useDispatch();
   const store = useStore();
 
@@ -50,13 +50,13 @@ const UserAddForm = () => {
     value: state.id,
     label: state.role_name,
   }));
-  console.log("roleoptions",roleoptions)
+ 
   const { handleChange, values, setFieldValue, handleSubmit, errors, touched } =
     useFormik({
       initialValues,
       validationSchema: userPageSchema,
       onSubmit: async (value, action) => {
-        console.log("values", value)
+      
         try {
           setLoading(true);
           const role_name = roleoptions.find((item: any) => item.value === Number(values.role));
@@ -76,7 +76,7 @@ const UserAddForm = () => {
             Api.adduser,
             payload,
           );
-          console.log("res", res)
+          
           if (res.status === 200) {
             toast.success("User added successfully");
 
@@ -88,7 +88,7 @@ const UserAddForm = () => {
           }
         } catch (error) {
           toast.error("Failed to add country");
-          console.log("API Error", error);
+         
         }
         finally {
           setLoading(false);
@@ -105,18 +105,18 @@ const UserAddForm = () => {
     const stoerestate = store?.getState;
 
     if (!center?.length) {
-      console.log("Fetching states...");
+   
       fetchCenterIfNeeded(dispatch, stoerestate);
     }
     if (!role?.length) {
-      console.log("Fetching states...");
+      
       fetchRolesIfNeeded(dispatch, stoerestate);
     }
 
 
   }, [countries, states, dispatch]);
 
-  console.log("formik", values)
+
 
   useEffect(() => {
     if (values.usertype === "1") {

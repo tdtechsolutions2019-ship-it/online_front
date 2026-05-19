@@ -56,9 +56,9 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
   filterComponent: FilterComponent
 }) => {
   const userData = useSelector((state: any) => state.login.user);
-  console.log("userData", userData)
+
   const router = useRouter();
-  console.log("modulename", filterbtn)
+
   return (
     <div
       className={`rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] ${className}`}

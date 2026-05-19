@@ -57,13 +57,13 @@ const CenterInfoForm = () => {
       label: state.state_name,
     }))
 );
-console.log("StateOptions",StateOptions)
+
   const { handleChange, values, setFieldValue, handleSubmit, errors, touched } =
     useFormik({
       initialValues,
       validationSchema: centerInfoSchema,
       onSubmit: async (value, action) => {
-        console.log("form values", value)
+     
         try {
           dispatch(setLoading(true));
           const formData = new FormData();
@@ -87,7 +87,7 @@ console.log("StateOptions",StateOptions)
             Api.addCenter,
             formData,
           ); 
-          console.log("ress", res)
+       
           if (res.status === 200) {
             dispatch(setCenterInfo())
             toast.success("Center added successfully");
@@ -117,12 +117,12 @@ console.log("StateOptions",StateOptions)
     const stoerestate = store?.getState;
 
     if (!countries?.length) {
-      console.log("Fetching countries...");
+
       fetchCountriesIfNeeded(dispatch, stoerestate);
     }
 
     if (!states?.length) {
-      console.log("Fetching states...");
+     
       fetchStatesIfNeeded(dispatch, stoerestate);
     }
   }, []);

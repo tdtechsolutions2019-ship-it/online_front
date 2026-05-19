@@ -1,10 +1,15 @@
 import BasicTables from '@/components/tables/BasicTable'
 import React, { useMemo } from 'react'
 
+interface SelectedStudentProps {
+    scedualdata?: any[];
+    isViewMode?: boolean;
+}
+function SelectedStudent({
+    scedualdata = [],
+    isViewMode = false,
+}: SelectedStudentProps) {
 
-function SelectedStudent({ scedualdata, isViewMode }: any) {
-    console.log("scedualdata", scedualdata
-    )
     const columns = useMemo(
         () => [
             { accessorKey: "IdNo", header: "Id No", size: 50 },
@@ -15,9 +20,10 @@ function SelectedStudent({ scedualdata, isViewMode }: any) {
         []
     );
 
+
     return (
         <div>
-            {scedualdata.length > 0 ?
+            {scedualdata && scedualdata.length > 0 ?
                 <table className="min-w-full border border-gray-200 rounded-lg overflow-hidden">
                     <thead className="bg-gray-500 text-white">
                         <tr>

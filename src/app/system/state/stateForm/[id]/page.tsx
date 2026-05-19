@@ -86,7 +86,7 @@ const StateUpdateForm = () => {
       });
       const data = res.data[0];
       setStateId(data.country_id)
-      console.log("res state update", res)
+    
       setValues({
         country_id: data.country_name || "",
         states: [
@@ -111,7 +111,7 @@ const StateUpdateForm = () => {
     }
   }, [id]);
 
-  console.log("formik", values, values.states[0].status);
+
   const statusoption = [
     { value: "1", label: "Active" },
     { value: "0", label: "Inactive" },

@@ -69,7 +69,7 @@ function EditViiwRoleForm() {
             initialValues,
             validationSchema: RoleSchema,
             onSubmit: async (value, action) => {
-                console.log("value", value);
+                
                 try {
                     dispatch(setLoading(true));
                     const payload = {
@@ -79,7 +79,7 @@ function EditViiwRoleForm() {
                         `${Api.updateRoles}/${id}`,
                         payload,
                     );
-                    console.log("resRoleform", res)
+                    
                     if (res.status === 200) {
                         dispatch(setRole());
                         toast.success("Role updated successfully");
@@ -107,7 +107,7 @@ function EditViiwRoleForm() {
                     "Content-Type": "application/json",
                 },
             });
-            console.log("res", res, res?.role_name)
+           
             if (res.statuscode === 200) {
                 setValues({
                     role_name: res?.role_name || "",
@@ -257,7 +257,7 @@ function EditViiwRoleForm() {
         });
     }
 
-    console.log("valuses", values)
+
     const statusoption = [
         { label: "Active", value: "1" },
         { label: "Inactive", value: "0" }
@@ -266,7 +266,7 @@ function EditViiwRoleForm() {
     const displayModules = isViewMode
         ? modules.filter((mod) => mod.id !== "1")
         : modules;
-    console.log("module", displayModules)
+   
     return (
         <div>
             <div>
@@ -343,7 +343,7 @@ function EditViiwRoleForm() {
                                 <tbody className='space-y-6'>
                                     {displayModules.map((module) => (
                                         <>
-                                            {/* {console.log('module', module)} */}
+                                  
 
                                             <tr key={module.name} className="border-t odd:bg-gray-50">
 

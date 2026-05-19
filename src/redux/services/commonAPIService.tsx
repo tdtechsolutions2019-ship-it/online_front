@@ -44,7 +44,7 @@ export const fetchStatesIfNeeded = async (dispatch: any, getState: any) => {
         "Content-Type": "application/json",
       },
     })
-    console.log("state Resss",res)
+
     if (res.status === 200) {
 
       dispatch(setGroupedState(res.data));
@@ -58,7 +58,7 @@ export const fetchStatesIfNeeded = async (dispatch: any, getState: any) => {
 
 export const fetchCenterIfNeeded = async (dispatch: any, getState: any) => {
   const { centerInfo } = getState();
-  console.log("center111111111", centerInfo)
+
   if (centerInfo?.list?.length > 0) return;
   try {
 
@@ -67,7 +67,7 @@ export const fetchCenterIfNeeded = async (dispatch: any, getState: any) => {
         "Content-Type": "application/json",
       },
     })
-    console.log("Center Info", res)
+   
     if (res.status === 200) {
       const formattedData = res.data.map((item: any) => ({
         ...item,
@@ -95,7 +95,7 @@ export const fetchCenterIfNeeded = async (dispatch: any, getState: any) => {
                     "Content-Type": "application/json",
                 },
             })
-            console.log("res", res)
+           
             if (res.status === 200) {
 
                 const formattedData = res.data.map((item: any) => ({
@@ -112,7 +112,7 @@ export const fetchCenterIfNeeded = async (dispatch: any, getState: any) => {
 
 export const fetchSubjectIfNeeded = async (dispatch: any, getState: any) => {
   const { subject } = getState();
-  console.log("subject in fatchapi", subject)
+
   if (subject?.list?.length > 0) return; 
 
   try {
@@ -147,7 +147,7 @@ export const fetchCourseIfNeeded = async (dispatch: any, getState: any) => {
         "Content-Type": "application/json",
       },
     });
-    console.log("res sub", res);
+
     if (res.status === 200) {
       const formattedData = res.data.map((item: any) => ({
         ...item,
@@ -172,7 +172,7 @@ export const fetchStudentIfNeeded = async (dispatch: any, getState: any) => {
         "Content-Type": "application/json",
       },
     });
-    console.log("res sub", res);
+  
     if (res.status === 200) {
       const formattedData = res.data.map((item: any) => ({
         ...item,

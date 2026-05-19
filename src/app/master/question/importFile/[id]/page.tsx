@@ -20,7 +20,7 @@ function ImportHistoryDetails() {
                     "Content-Type": "application/json",
                 },
             })
-            console.log("getImportHistorydetailsforque", res)
+     
             if (res.status === 200) {
 
                 const formattedData = res.data.map((item: any) => ({

@@ -57,7 +57,7 @@ const StudentAddForm = () => {
       initialValues,
       validationSchema: studentPageSchema,
       onSubmit: async (value, action) => {
-        console.log("form values student Data", value);
+
 
         try {
           setLoading(true);
@@ -133,8 +133,7 @@ const StudentAddForm = () => {
       };
     }
   );
-  console.log("form values", values,);
-  console.log("form errors", errors);
+
   return (
     <div>
       {loading && (

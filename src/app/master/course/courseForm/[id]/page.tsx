@@ -44,14 +44,14 @@ const CourseUpdateForm = () => {
       initialValues,
       validationSchema: coursePageSchema,
       onSubmit: async (value, action) => {
-        console.log("form values", value);
+      
         try {
 
           const totalWeight = (value.subjects || []).reduce(
             (sum, item) => sum + Number(item.weight || 0),
             0
           );
-          console.log("totalWeight11111", totalWeight)
+     
           // ✅ Validation
           if (totalWeight > Number(value.total_marks)) {
             toast.error("Total weight should not be greater than total marks");
@@ -65,7 +65,7 @@ const CourseUpdateForm = () => {
             };
 
             const res = await updateData(`${Api.updateCourse}/${id}`, payload,);
-            console.log("resssss12121", res)
+         
             if (res.status === 200) {
               dispatch(setCourse())
               toast.success("Course Update successfully");
@@ -98,9 +98,9 @@ const CourseUpdateForm = () => {
           "Content-Type": "application/json",
         },
       });
-      console.log("res", res)
+     
       const data = res.data || {};
-      console.log("update data", data)
+    
       setValues({
         course_name: data.course_name || "",
         course_code: data.course_code || "",
@@ -157,8 +157,7 @@ const CourseUpdateForm = () => {
       value: (0.5 * (i + 1)).toString(),
     };
   });
-  console.log("values", values);
-  console.log("errors", errors);
+
   useEffect(() => {
     if (!subject?.length) {
       fetchSubjectIfNeeded(dispatch, store?.getState);

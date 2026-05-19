@@ -15,7 +15,7 @@ export default function UserInfoCard() {
           const userData = useSelector((state: any) => state.login.user);
   const handleSave = () => {
     // Handle save logic here
-    console.log("Saving changes...");
+
     closeModal();
   };
   return (

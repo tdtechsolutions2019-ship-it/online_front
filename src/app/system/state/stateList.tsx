@@ -81,7 +81,7 @@ const StateListPage = () => {
       const res = await deleteData(
         `${Api.deleteState}/${id}`,
       );
-      console.log("delete response", res);
+    
 
 
       if (res.status === 200) {
@@ -102,7 +102,7 @@ const StateListPage = () => {
 
 
   const handleImportFile = async (file: File) => {
-    console.log("Uploaded file:", file);
+  
 
     // Option 1: send to backend
     const formData = new FormData();

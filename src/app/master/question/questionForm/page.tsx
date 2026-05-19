@@ -59,20 +59,19 @@ const QuestionAddForm = () => {
       validationSchema: '',
       onSubmit: async (value, action) => {
 
-        console.log("value", value);
         try {
           setLoading(true)
           const payload = {
             ...value,
 
           };
-          console.log("payload", payload)
+        
 
           const res = await createData(
             Api.addquetion,
             payload,
           );
-          console.log("res------>>", res)
+          
           if (res.status === 200) {
             toast.success(res.message);
 

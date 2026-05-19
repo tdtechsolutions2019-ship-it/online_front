@@ -107,7 +107,7 @@ const AppSidebar: React.FC = () => {
   const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar();
   const pathname = usePathname();
   const userData = useSelector((state: any) => state.login.user);
-  { console.log("AAAAAA", userData?.permissions) }
+
   const renderMenuItems = (
     navItems: NavItem[],
     menuType: "main" | "others"

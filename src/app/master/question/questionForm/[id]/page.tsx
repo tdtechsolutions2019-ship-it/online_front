@@ -76,19 +76,19 @@ const QuestionEditForm = () => {
       validationSchema: '',
       onSubmit: async (value, action) => {
 
-        console.log("value", value);
+       
         try {
           setLoading(true)
           const payload = {
             ...value
           };
-          console.log("payload", payload)
+       
 
           const res = await updateData(
             `${Api.updatequestion}/${id}`,
             payload,
           );
-          console.log("res------>>", res)
+        
           if (res.status === 200) {
             toast.success(res.message);
 
@@ -114,11 +114,11 @@ const QuestionEditForm = () => {
           "Content-Type": "application/json",
         },
       });
-      console.log("res in question", res)
+
 
       if (res.status === 200) {
         const data = res.data;
-        console.log("formik11111111", data)
+       
         const updatedTranslations = languages.map((lang) => {
           const existing = data.translations?.find(
             (t: any) => t.language_id === lang.id
@@ -160,7 +160,7 @@ const QuestionEditForm = () => {
       getCountry();
     }
   }, [id]);
-  console.log("formik11111111", formik.values)
+
 
   const questiontype = [
     { value: '1', label: "Multiple Choice Question" },

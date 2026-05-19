@@ -75,7 +75,7 @@ const CountryEditForm = () => {
           "Content-Type": "application/json",
         },
       });
-      console.log("res", res)
+      
       setValues({
         country_name: res.data[0].country_name || "",
         country_code: res.data[0].country_code || "",
@@ -94,7 +94,7 @@ const CountryEditForm = () => {
       getCountry();
     }
   }, [id]);
-  console.log("formik values", values);
+
   const statusoption = [
     { label: "Active", value: "1" },
     { label: "Inactive", value: "0" }

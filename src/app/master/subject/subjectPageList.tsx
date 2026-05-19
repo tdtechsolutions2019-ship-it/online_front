@@ -52,7 +52,7 @@ const SubjectListPage = () => {
       const res = await deleteData(`${Api.deleteSubject}/${id}`,
       );
 
-      console.log("delete response", res);
+     
       if (res.status === 200) {
         toast.success("Subject deleted successfully");
         dispatch(removeSubject(id));

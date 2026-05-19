@@ -20,7 +20,7 @@ const UserListPage = () => {
           "Content-Type": "application/json",
         },
       })
-      console.log("res", res)
+    
       if (res.status === 200) {
 
         const formattedData = res.data.map((item: any) => ({
@@ -38,7 +38,7 @@ const UserListPage = () => {
     }
   }
 
-  console.log("data", data)
+ 
   const columns = useMemo(
     () => [
       { accessorKey: "role_name", header: "Role Name", Cell: ({ cell }) => cell.getValue() ? cell.getValue() : "-" },

@@ -54,8 +54,7 @@ const ResultReportPage = () => {
             initialValues,
             // validationSchema: SettingSchema,
             onSubmit: async (value) => {
-                console.log("111111")
-                // Require at least one field
+                   // Require at least one field
                 if (
 
                     !value.center_id
@@ -78,7 +77,7 @@ const ResultReportPage = () => {
                         },
                     });
 
-                    console.log("resinexamreport", res);
+                    
                     if (res.status === 200) {
                         const formattedData = res.data.map((item: any) => ({
                             ...item,
@@ -102,7 +101,7 @@ const ResultReportPage = () => {
                 }
             },
         });
-    console.log("form setting", values)
+   
     useEffect(() => {
         const stoerestate = store?.getState;
 

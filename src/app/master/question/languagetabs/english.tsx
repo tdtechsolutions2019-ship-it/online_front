@@ -8,8 +8,6 @@ import React from 'react'
 
 function English({ formik, index, language, isviewMode }: any) {
 
-
-    console.log("11111111111", language)
     const handleCopyFromEnglish = (checked: boolean) => {
 
         if (!checked) return;
@@ -24,7 +22,7 @@ function English({ formik, index, language, isviewMode }: any) {
 
     };
 
-    console.log("formik222222", formik.values)
+  
     return (
         <div className='p-4'>
             {language.name !== 'English' &&

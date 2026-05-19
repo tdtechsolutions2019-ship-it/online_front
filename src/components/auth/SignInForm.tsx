@@ -54,15 +54,15 @@ export default function SignInForm() {
 
           );
 
-          console.log("form values", res);
+    
 
           if (res.status === 200) {
 
             const token = res.data
-            console.log("token",token)
+          
             const userdecoed = jwtDecode<DecodedToken>(token);
 
-            console.log("userdecoed", userdecoed)
+         
             dispatch(
               loginSuccess({
                 user: {
@@ -80,20 +80,20 @@ export default function SignInForm() {
             setIsLoading(false);
             router.push("/dashboard");
           } else if (res.status === 400) {
-            console.log("11111111", res)
+            
             dispatch(setLoading(false));
             toast.error(res.data.message);
           }
 
         } catch (error) {
           setIsLoading(false);
-          console.log("222", error)
+          
         }
 
 
       },
     });
-  console.log("loading", isLoading)
+
   return (
     <div className="flex flex-col flex-1 lg:w-1/2 w-full">
       <div className="w-full max-w-md sm:pt-10 mx-auto mb-5">

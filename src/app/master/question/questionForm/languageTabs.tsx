@@ -9,7 +9,7 @@ function LanguageTabs({ formik, languages, isviewMode }: any) {
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
     };
-    console.log("languages", languages)
+   
     return (
         <>
             <Tabs>

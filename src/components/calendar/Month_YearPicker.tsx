@@ -13,7 +13,7 @@ interface MonthYearPickerProps {
 }
 
 export default function MonthYearPicker({ value, onChange }: MonthYearPickerProps) {
-    console.log('value', value)
+    
     const [open, setOpen] = useState(false);
     const [year, setYear] = useState(new Date().getFullYear());
     

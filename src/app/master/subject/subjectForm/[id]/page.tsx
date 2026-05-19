@@ -35,7 +35,7 @@ const SubjectUpdateForm = () => {
       initialValues,
       validationSchema: subjectPageSchema,
       onSubmit: async (value, action) => {
-        console.log("form values", value);
+        
         try {
           dispatch(setLoading(true));
           const payload = {
@@ -70,9 +70,9 @@ const SubjectUpdateForm = () => {
           "Content-Type": "application/json",
         },
       });
-      console.log("res", res)
+     
       const data = res.data[0] || {};
-      console.log("update data", data)
+  
       setValues({
         subject_name: data.subject_name || "",
         description: data.description || "",
@@ -95,8 +95,7 @@ const SubjectUpdateForm = () => {
     { label: "Active", value: "1" },
     { label: "Inactive", value: "0" }
   ];
-  console.log("values", values);
-  console.log("errors", errors);
+
   return (
     <div>
       {loading && (

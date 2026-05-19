@@ -41,13 +41,13 @@ const CourseAddForm = () => {
       initialValues,
       validationSchema: coursePageSchema,
       onSubmit: async (value, action) => {
-        console.log("form values", value);
+     
         try {
           const totalWeight = (value.subjects || []).reduce(
             (sum, item) => sum + Number(item.weight || 0),
             0
           );
-          console.log("totalWeight11111", totalWeight)
+          
           // ✅ Validation
           if (totalWeight > Number(value.total_marks)) {
             toast.error(" Total weight should not be greater than total marks");
@@ -60,7 +60,7 @@ const CourseAddForm = () => {
 
             const res = await createData(Api.addCourse, payload,
             );
-            console.log("res course", res)
+         
             // if (!values.subjects || values.subjects.length === 0) {
             //   toast.error("Please select Atleast One subject");
             // }
@@ -114,15 +114,13 @@ const CourseAddForm = () => {
       value: (0.5 * (i + 1)).toString(),
     };
   });
-  console.log("values", values);
-  console.log("errors", errors);
+
   useEffect(() => {
     if (!subject?.length) {
       fetchSubjectIfNeeded(dispatch, store?.getState);
     }
   }, []);
 
-  console.log("formikkkk", values)
 
   return (
     <div>

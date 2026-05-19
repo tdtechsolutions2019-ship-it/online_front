@@ -53,7 +53,7 @@ const CourseListPage = () => {
       const res = await deleteData(`${Api.deleteCourse}/${id}`,
       );
 
-      console.log("delete response", res);
+   
       if (res.status === 200) {
         toast.success("Course deleted successfully");
         dispatch(removeCourse(id));

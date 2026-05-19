@@ -47,7 +47,7 @@ function CountryForm() {
 
           router.push("/system/country");
         }
-        console.log("country res", res)
+       
         if(res.status === 500){
           toast.error(res.data.data.message);
         }

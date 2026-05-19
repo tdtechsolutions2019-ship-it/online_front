@@ -21,10 +21,9 @@ const RetestPage = () => {
 
         const result: any[] = [];
         let temp: any = {};
-        console.log("data", data)
+    
         data.forEach((item: any, index: number) => {
 
-          console.log("111111", item.key !== "startDate", item.key !== "endDate", item.key !== "adminReportEmail", item.key !== "isCentralHead", item.key !== "adminEmail", item.key !== "complexityLevel")
 
           if (item.key !== "startDate" && item.key !== "endDate" && item.key !== "adminReportEmail" && item.key !== "isCentralHead" && item.key !== "adminEmail" && item.key !== "complexityLevel") {
             if (item.value !== null && item.value !== undefined && item.value !== "") {
@@ -35,7 +34,7 @@ const RetestPage = () => {
               }
             }
           }
-          console.log("temp", Object.keys(temp))
+        
           // every 3 items = one row
           if (Object.keys(temp).length > 0) {
             if ((index + 1) % 3 === 0) {
@@ -51,7 +50,7 @@ const RetestPage = () => {
       console.log(error);
     }
   };
-  console.log("usersusers", users)
+
   useEffect(() => {
     getRetest();
   }, []);

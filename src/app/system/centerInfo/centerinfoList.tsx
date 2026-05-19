@@ -15,7 +15,6 @@ const CenterInfoListPage = () => {
     const [openDelete, setOpenDelete] = useState(false)
     const [id, setId] = useState("")
     const center = useSelector((state: any) => state.centerInfo.list);
-    console.log("center", center)
     const dispatch = useDispatch();
     const store = useStore();
 

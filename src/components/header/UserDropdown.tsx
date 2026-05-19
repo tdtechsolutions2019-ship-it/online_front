@@ -14,7 +14,7 @@ export default function UserDropdown() {
   const router = useRouter();
   const dispatch = useDispatch();
   const userData = useSelector((state: any) => state.login.user);
-  console.log("userData", userData)
+  
 
   function toggleDropdown(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.stopPropagation();

@@ -47,7 +47,7 @@ const ApperanceReportPage = () => {
       initialValues,
       validationSchema: '',
       onSubmit: async (value) => {
-        console.log("111111")
+        
         // Require at least one field
         if (
           !value.exam_date &&
@@ -71,7 +71,7 @@ const ApperanceReportPage = () => {
             },
           });
 
-          console.log("resinexamreport", res);
+       
           if (res.status === 200) {
             const formattedData = res.data.map((item: any) => ({
               ...item,
@@ -145,11 +145,10 @@ const ApperanceReportPage = () => {
   );
 
   const releaseStudents = async () => {
-    console.log("11111111111111")
-    console.log("rowSelection", rowSelection)
+
     const data = { studentslist: rowSelection };
     const res = await createData(Api.releaseStudent, data);
-    console.log("ress", res)
+
     if (res.status === 200) {
       toast.success(res.message);
       resetForm();

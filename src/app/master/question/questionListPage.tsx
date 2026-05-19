@@ -36,7 +36,7 @@ const QuestionListPage = () => {
           "Content-Type": "application/json",
         },
       })
-      console.log("res", res)
+     
       if (res.status === 200) {
 
         const formattedData = res.data.map((item: any) => ({
@@ -123,7 +123,7 @@ const QuestionListPage = () => {
     setId(id);
     setOpenDelete(true);
   };
-  console.log("data", data)
+
   return (
     <div>
       <BasicTables data={data} columns={columns} title="Question" quebtn={true} modulename={"Question"} onDelete={handlepopup} quepath="/master/question/importFile" editPath="/master/question/questionForm" importbtn={true} isstudent={false} path="/master/question/questionForm" />

@@ -35,7 +35,7 @@ const RescheduleReport = () => {
       initialValues,
       // validationSchema: examScheduleSchema,
       onSubmit: async (value) => {
-        console.log("111111")
+       
         // Require at least one field
         if (
 
@@ -50,7 +50,7 @@ const RescheduleReport = () => {
 
           const res = await readData(`${Api.reschedualStudent}/${value.center_id}`);
 
-          console.log("resinexamreport", res);
+       
           if (res.status === 200) {
             const formattedData = res.data.map((item: any) => ({
               ...item,

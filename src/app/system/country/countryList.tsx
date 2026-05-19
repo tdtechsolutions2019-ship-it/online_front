@@ -86,7 +86,7 @@ function CountryListPage() {
             fetchCountriesIfNeeded(dispatch, store?.getState);
         }
     }, []);
-    console.log("countries", countries)
+   
     return (
         <div>
             <BasicTables data={countries} columns={columns} modulename={"Country"} title="Country" onDelete={handlepopup} loading={loading} editPath="/system/country/countryForm" importbtn={false} isstudent={false} path="/system/country/countryForm" />

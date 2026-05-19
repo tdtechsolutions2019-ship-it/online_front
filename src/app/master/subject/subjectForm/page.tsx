@@ -32,7 +32,7 @@ const SubjectAddForm = () => {
         initialValues,
         validationSchema: subjectPageSchema,
         onSubmit: async (value, action) => {
-        console.log("form values", value);
+       
         try {
           dispatch(setLoading(true));
           const payload = {
@@ -63,8 +63,7 @@ const SubjectAddForm = () => {
       { label: "Active", value: "1" },
       { label: "Inactive", value: "0" }
     ];
-    console.log("values", values);
-    console.log("errors", errors);
+
   return (
     <div>
        {loading && (

@@ -11,7 +11,7 @@ function ImportState({ onImport, onClose ,templateUrl,error,setError}: any) {
     
     const fileref = useRef(null as any);
     const hanleChange = (e: any) => {
-        console.log("eeee", e.target.files[0])
+     
         const seletecFile = e.target.files[0];
         setFile(seletecFile);
         if (!seletecFile) return;
@@ -39,7 +39,7 @@ function ImportState({ onImport, onClose ,templateUrl,error,setError}: any) {
         if (!file) return setError("Please select a file");
         onImport(file);
     };
-    console.log("file", error)
+
     const handleRemove =()=>{
         setFile(null);
         setselectedFile(null);

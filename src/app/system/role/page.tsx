@@ -19,7 +19,7 @@ function RolePage() {
                     "Content-Type": "application/json",
                 },
             })
-            console.log("res1", res)
+           
             if (res.status === 200) {
 
                 const formattedData = res.data.filter((item: any) => item.id !== 1).map((item: any) => ({
@@ -93,7 +93,7 @@ function RolePage() {
         setId(id);
         setOpenDelete(true);
     };
-    console.log("data", data)
+    
     return (
         <div>
             <BasicTables data={data} columns={columns} onDelete={handlepopup} modulename={"Role"} loading={loading} title="Role" editPath="/system/role/roleForm" isstudent={false} path="/system/role/roleForm" />

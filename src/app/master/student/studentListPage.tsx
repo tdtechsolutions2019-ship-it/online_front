@@ -216,12 +216,12 @@ const StudentListPage = () => {
         toast.error("Failed to delete student");
       }
     } catch (error) {
-      console.log("dekete error",error);
+   
       toast.error("Failed to delete Student");
     }
   };
   const handleImportFile = async (file: File) => {
-    console.log("Uploaded file:", file);
+  
 
     // Option 1: send to backend
     const formData = new FormData();
@@ -244,7 +244,7 @@ const StudentListPage = () => {
       else if (res.status === 500) {
         setError(res.data.message)
       }
-      console.log("import res", res)
+     
     } catch (error) {
       console.log("error", error)
     }
@@ -269,7 +269,6 @@ const StudentListPage = () => {
   }, [courseCode]);
 
 
-  console.log('studentData', studentData)
   return (
     <div className='space-y-4'>
       <h2

@@ -32,7 +32,7 @@ function ImportQueFile() {
                     "Content-Type": "application/json",
                 },
             })
-            console.log("resimporthistory", res)
+            
             if (res.status === 200) {
 
                 const formattedData = res.data.map((item: any) => ({
@@ -50,7 +50,7 @@ function ImportQueFile() {
         }
     }
     const hanleChange = (e: any) => {
-        console.log("eeee", e.target.files[0])
+     
         const seletecFile = e.target.files[0];
         setFile(seletecFile);
         if (!seletecFile) return;
@@ -74,7 +74,7 @@ function ImportQueFile() {
         setFile(seletecFile);
     }
     const handleImportFile = async (file: File) => {
-        console.log("Uploaded file:", file);
+   
 
         // Option 1: send to backend
         const formData = new FormData();
@@ -101,7 +101,7 @@ function ImportQueFile() {
         if (!file) return setError("Please select a file");
         handleImportFile(file);
     };
-    console.log("file", error)
+
     const handleRemove = () => {
         setFile(null);
         setselectedFile(null);
