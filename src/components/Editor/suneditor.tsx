@@ -1,10 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-// import "suneditor/dist/css/suneditor.min.css";
-import "suneditor/dist/css/suneditor.css";
+import "suneditor/dist/css/suneditor.min.css";
 import katex from "katex";
-
 
 const SunEditor = dynamic(() => import("suneditor-react"), {
     ssr: false,
@@ -13,7 +11,6 @@ const SunEditor = dynamic(() => import("suneditor-react"), {
 export default function Editor({ value, onChange, disabled }) {
     return (
         <SunEditor
-
             setContents={value ?? ""}
             onChange={onChange}
             disable={disabled ?? false}
@@ -23,15 +20,13 @@ export default function Editor({ value, onChange, disabled }) {
                     ["undo", "redo"],
                     ["bold", "italic", "underline"],
                     ["list", "align"],
-                    ["link", 'image'],
+                    ["link", "image"],
                     ["fullScreen"],
                     ["formatBlock"],
                     ["removeFormat"],
                     ["math"],
                     ["subscript", "superscript"],
-
                 ],
-
             }}
             height="100%"
             width="90%"
