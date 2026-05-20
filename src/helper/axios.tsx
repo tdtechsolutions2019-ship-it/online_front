@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://onlineexam-backend.vercel.app/api/";
+const BASE_URL = "https://onlineexam-backend.vercel.app/api/";
 // const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 // const BASE_URL = "http://localhost:5000/api";
 // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
